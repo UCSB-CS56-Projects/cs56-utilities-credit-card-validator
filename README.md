@@ -1,10 +1,12 @@
 # cs56-utilities-credit-card-validator
 
-Command-line credit card number validator. Allows user to choose between creating a random
+GUI-based credit card number validator. Allows user to choose between creating a random
 credit card number or checking if a given number is valid.
+
+Allows users to choose to generate specific card numbers, like Visa, Mastercard, American Express, and Discover.
 
 project history
 ===============
 ```
- W14 | andrewberls | TBD | A credit card number validator
+ W15 | andrewberls, Jonathan Easterman, Ishi Von Meier | TBD | A credit card number validator
 ```
