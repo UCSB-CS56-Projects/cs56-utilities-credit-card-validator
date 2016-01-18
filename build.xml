@@ -5,6 +5,8 @@
 -->
 <property environment="env"/>
 <!-- load the environment variables -->
+
+<property name="package" value="edu.ucsb.cs56.projects.utilities.credit_card_validator" />
 <property name="webRoot" value="${env.HOME}/public_html/cs56/S11/issues/"/>
 <property name="webBaseUrl" value="http://www.cs.ucsb.edu/~${env.USER}/cs56/"/>
 <property name="projectName" value="0000258"/>
@@ -17,17 +19,18 @@
 <target name="compile" description="compile the code">
   <mkdir dir="build"/>
 
-  <javac srcdir="src" destdir="build" debug="true" debuglevel="lines,source">
+  <javac srcdir="src" destdir="build" debug="true" debuglevel="lines,source"
+   includeantruntime="false" >
 
     <classpath>
       <pathelement location="build"/>
-      <pathelement location="/cs/faculty/pconrad/public_html/cs56/lib/junit-4.8.2.jar"/>
+      <pathelement location="lib/junit-4.8.2.jar"/>
     </classpath>
   </javac>
 </target>
 
 <target name="run" depends="compile" description="run the Main Menu program.">
-  <java classname="${mainClass}" classpath="build" fork="true"/>
+  <java classname="${package}.${mainClass}" classpath="build" fork="true"/>
 </target>
 
 <target name="clean" description="gets rid of any unnecessary files and directories">
@@ -46,7 +49,7 @@
   <junit haltonerror="no" haltonfailure="no">
 
     <classpath>
-      <pathelement location="/cs/faculty/pconrad/public_html/cs56/lib/junit-4.8.2.jar"/>
+      <pathelement location="lib/junit-4.8.2.jar"/>
       <pathelement location="build"/>
     </classpath>
 
@@ -71,7 +74,7 @@
     <fileset dir="src" includes="**/*.java"/>
 
     <classpath>
-      <pathelement location="/cs/faculty/pconrad/public_html/cs56/lib/junit-4.8.2.jar"/>
+      <pathelement location="lib/junit-4.8.2.jar"/>
     </classpath>
   </javadoc>
   <!-- delete the old javadoc -->
