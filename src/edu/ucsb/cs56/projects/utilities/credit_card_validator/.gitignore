@@ -1,8 +1,0 @@
-javadoc/
-build/
-*.class
-*~
-.ant-targets-build.xml
-*.DS_Store
-+*.iml
-+.idea/
