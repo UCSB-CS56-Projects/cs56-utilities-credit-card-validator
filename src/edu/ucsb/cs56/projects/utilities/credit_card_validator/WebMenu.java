@@ -4,6 +4,7 @@ import static spark.Spark.*;
 
 public class WebMenu {
     public static void main(String[] args) {
+      port(getHerokuAssignedPort());
 	WebMenu webMenu = new WebMenu();
 	webMenu.createMenu();
 	webMenu.helloWorld();
@@ -14,6 +15,15 @@ public class WebMenu {
 	webMenu.generateAE();
 	webMenu.validate();
     }
+
+    static int getHerokuAssignedPort() {
+    ProcessBuilder processBuilder = new ProcessBuilder();
+    if (processBuilder.environment().get("PORT") != null) {
+        return Integer.parseInt(processBuilder.environment().get("PORT"));
+    }
+    return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+}
+
 
     private void createMenu(){
        	get("/menu", (request, response) ->
